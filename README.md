@@ -1,10 +1,10 @@
-# 3D Book Retrieval Robot Simulator
+# 🤖 3D Book Retrieval Robot Simulator
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![Open3D](https://img.shields.io/badge/Open3D-Simulation-success)
-![OpenCV](https://img.shields.io/badge/OpenCV-UI-blueviolet)
+![OpenCV](https://img.shields.io/badge/OpenCV-UI-red)
 ![YOLOv8-OBB](https://img.shields.io/badge/YOLOv8-OBB-orange)
 ![Intel RealSense](https://img.shields.io/badge/Intel-RealSense-0071C5)
-![Robot](https://img.shields.io/badge/Robot-4DOF-red)
+![Robot](https://img.shields.io/badge/Robot-4DOF-purple)
 ![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
 
 > Final Year Project (FYP) – Phase 2
