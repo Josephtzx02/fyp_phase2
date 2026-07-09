@@ -1,6 +1,7 @@
 # 3D Book Retrieval Robot Simulator
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![Open3D](https://img.shields.io/badge/Open3D-Simulation-success)
+![OpenCV](https://img.shields.io/badge/OpenCV-UI-blueviolet)
 ![YOLOv8-OBB](https://img.shields.io/badge/YOLOv8-OBB-orange)
 ![Intel RealSense](https://img.shields.io/badge/Intel-RealSense-0071C5)
 ![Robot](https://img.shields.io/badge/Robot-4DOF-red)
