@@ -37,7 +37,7 @@ display_resize_scale = 1.0
 model = YOLO(MODEL_PATH)
 
 width_model = joblib.load("models/width_model.pkl")
-width_features = joblib.load("model/width_features.pkl")
+width_features = joblib.load("models/width_features.pkl")
 
 weight_model = joblib.load("models/weight_model_D_huber.pkl")
 weight_features = joblib.load("models/weight_features_D.pkl")
