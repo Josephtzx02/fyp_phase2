@@ -168,7 +168,7 @@ Mobile Robot (AGV)
 
 ## Stage 7
 
-obb_clickable_demo.py
+book_retrieval_system.py
 
 Complete System Integration
 
@@ -176,7 +176,7 @@ Complete System Integration
 - YOLOv8-OBB Detection
 - Mouse Interaction
 - OpenCV User Interface
-- Open3D Robot Simulation
+- Open3D Robot and Book Retrieval Simulation
 
 ---
 
@@ -201,18 +201,25 @@ The following sequence illustrates the complete perception-to-manipulation workf
 
 ```
 .
-
+├── models/
+│   ├── best.pt
+│   ├── width_model.pkl
+│   ├── width_features.pkl
+│   ├── weight_features_D.pkl
+│   └── weight_model_D_huber.pkl
+│
+├── legacy/
+│   ├── fyp2.0_v1/
+│   ├── fyp2.0_v2/
+│   └── fyp2.0_v3/
+│
 ├── coordinate_transform.py
 ├── world_transform.py
 ├── grasp_target.py
 ├── inverse_kinematics.py
 ├── robot_arm.py
 ├── simulator.py
-├── obb_clickable_demo.py
-│
-├── fyp2.0_v1/
-├── fyp2.0_v2/
-├── fyp2.0_v3/
+├── book_retrieval_system.py
 │
 └── README.md
 ```
@@ -221,7 +228,7 @@ The following sequence illustrates the complete perception-to-manipulation workf
 
 # File Description
 
-## obb_clickable_demo.py
+## book_retrieval_system.py
 
 Main application of the robotic simulation.
 
@@ -455,10 +462,10 @@ pip install numpy
 
 # Running the Simulator
 
-Run
+Execute the main application:
 
 ```bash
-python obb_clickable_demo.py
+python book_retrieval_system.py
 ```
 
 The program automatically performs:
