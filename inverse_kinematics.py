@@ -26,10 +26,10 @@ class InverseKinematics:
 
     def __init__(self):
         # Must match robot_arm.py
-        self.base_height = 250.0 # 220
-        self.link1 = 260.0 # 220
-        self.link2 = 240.0 # 180 
-        self.gripper = 100.0 # 80
+        self.base_height = 160.0 # 220
+        self.link1 = 220.0 # 260
+        self.link2 = 180.0 # 240 
+        self.gripper = 80.0 # 100
     
     def _within_limits(self, angles):
         t1, t2, t3 = angles
