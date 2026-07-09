@@ -15,7 +15,7 @@
 
 ---
 
-# Overview
+## Overview
 
 This repository contains the robotic manipulation and simulation framework developed during the second phase of my Final Year Project.
 
