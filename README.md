@@ -273,6 +273,8 @@ Robot Joints
 - Elbow
 - Wrist Pitch
 
+The wrist roll is controlled independently for book orientation and therefore is not included in the inverse kinematics computation.
+
 ---
 
 ## robot_arm.py
@@ -339,18 +341,78 @@ Robot Type
 
 Degrees of Freedom
 
-- Shoulder
-- Elbow
-- Wrist Pitch
-- Wrist Roll
-
-Mobile Platform
-
-- X-axis translation
+- 4 Degrees of Freedom (4-DOF)
 
 End Effector
 
 - Parallel Gripper
+
+Visualization
+
+- Open3D
+
+Motion Control
+
+- Inverse Kinematics
+- Forward Kinematics
+- State Machine
+
+---
+
+# Robot Coordinate System
+
+The robot simulation adopts a right-handed coordinate system designed for a mobile library retrieval robot.
+
+```
+             +Y
+             ↑
+             │
+             │
+             │
+             ●────────→ +Z
+            /
+           /
+         +X
+```
+
+Where:
+
+- **X-axis** : Mobile robot (AGV) left/right translation
+- **Y-axis** : Vertical height
+- **Z-axis** : Forward reach toward the bookshelf
+
+The robotic arm is mounted on a mobile platform, allowing lateral movement along the X-axis while the arm performs manipulation in the Y-Z plane.
+
+---
+
+## Robot Kinematic Structure
+
+```
+          Wrist Roll (DOF 4)
+                ○
+                │
+         Wrist Pitch (DOF 3)
+                ○
+                │
+          Elbow Joint (DOF 2)
+                ○
+                │
+        Shoulder Joint (DOF 1)
+                ○
+                │
+         Mobile AGV (X-axis)
+```
+
+The mobile manipulator consists of a **4-DOF robotic arm** mounted on an Automated Guided Vehicle (AGV).
+
+The manipulator includes:
+
+1. Shoulder Joint
+2. Elbow Joint
+3. Wrist Pitch
+4. Wrist Roll
+
+The AGV provides lateral translation along the X-axis, while the robotic arm performs manipulation primarily within the Y-Z plane.
 
 ---
 
@@ -401,8 +463,9 @@ The program automatically performs:
 - Coordinate transformation
 - Robot world calibration
 - Unified grasp target generation
-- Mobile robot positioning
-- 4-DOF robot arm simulation
+- Mobile AGV movement (X-axis)
+- 4-DOF robotic arm simulation
+- Shoulder, elbow, wrist pitch and wrist roll control
 - Inverse kinematics
 - Forward kinematics
 - Interactive Open3D visualization
