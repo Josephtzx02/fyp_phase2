@@ -29,10 +29,10 @@ class RobotArm:
     def __init__(self):
 
         # Must match with inverse_kinematics.py
-        self.base_height = 250.0 # 220
-        self.link1 = 260.0 # 220
-        self.link2 = 240.0 # 180 
-        self.gripper = 100.0 # 80
+        self.base_height = 160.0 # 220
+        self.link1 = 220.0 # 260
+        self.link2 = 180.0 # 240 
+        self.gripper = 80.0 # 100
         
         # Joint angles
         self.theta1 = 0.0
