@@ -1,2 +1,427 @@
-# fyp_phase2
-3D Book Retrieval Robot Simulator
+# 3D Book Retrieval Robot Simulator
+
+> Final Year Project (FYP) – Phase 2
+>
+> Bachelor of Manufacturing Engineering with Management (Hons.)
+>
+> Universiti Sains Malaysia (USM)
+
+---
+
+# Overview
+
+This repository contains the robotic manipulation and simulation component developed during the second phase of my Final Year Project.
+
+Unlike Phase 1, which focuses on computer vision and machine learning, this repository demonstrates how the detected books are transformed into robotic grasp targets and executed within a complete Open3D robotic simulation.
+
+The simulator receives perception outputs from the Phase 1 detection system and performs:
+
+- Coordinate transformation
+- Robot world calibration
+- Grasp target generation
+- Inverse kinematics
+- Forward kinematics
+- Mobile robot positioning
+- Open3D visualization
+- Automated book retrieval simulation
+
+The complete system demonstrates the entire perception-to-manipulation pipeline for an intelligent robotic book retrieval system.
+
+---
+
+# Relationship with Phase 1
+
+The complete project consists of two repositories.
+
+```
+Phase 1
+RGB-D Vision
+YOLOv8n-OBB
+Machine Learning
+        │
+        ▼
+Phase 2
+Robot Simulation
+Motion Planning
+Open3D Visualization
+Book Retrieval
+```
+
+Phase 1 Repository:
+
+> 3D Scene Analysis and Robotic Vision for Intelligent Book Retrieval Systems
+
+Phase 2 Repository:
+
+> 3D Book Retrieval Robot Simulator
+
+---
+
+# System Architecture
+
+```
+YOLO OBB Detection
+        │
+        ▼
+coordinate_transform.py
+(Pixel → Camera Coordinate)
+        │
+        ▼
+world_transform.py
+(Camera → Robot World)
+        │
+        ▼
+grasp_target.py
+(Build GraspTarget Object)
+        │
+        ▼
+simulator.py
+(Main Robot Controller)
+        │
+        ├── inverse_kinematics.py
+        │
+        └── robot_arm.py
+        │
+        ▼
+Open3D Robot Simulation
+```
+
+---
+
+# Processing Pipeline
+
+## Stage 1
+
+coordinate_transform.py
+
+Pixel Coordinate
+
+↓
+
+Camera Coordinate
+
+---
+
+## Stage 2
+
+world_transform.py
+
+Camera Coordinate
+
+↓
+
+Robot World Coordinate
+
+---
+
+## Stage 3
+
+grasp_target.py
+
+Robot World Coordinate
+
+↓
+
+Unified GraspTarget
+
+---
+
+## Stage 4
+
+inverse_kinematics.py
+
+Cartesian Target
+
+↓
+
+Joint Angles
+
+---
+
+## Stage 5
+
+robot_arm.py
+
+Forward Kinematics
+
+↓
+
+Robot Visualization
+
+---
+
+## Stage 6
+
+simulator.py
+
+Robot Controller
+
+State Machine
+
+Book Retrieval Logic
+
+Motion Planning
+
+Mobile Robot (AGV)
+
+---
+
+## Stage 7
+
+obb_clickable_demo.py
+
+Complete System Integration
+
+- RealSense RGB-D Camera
+- YOLOv8-OBB Detection
+- Mouse Interaction
+- OpenCV User Interface
+- Open3D Robot Simulation
+
+---
+
+# Repository Structure
+
+```
+.
+
+├── coordinate_transform.py
+├── world_transform.py
+├── grasp_target.py
+├── inverse_kinematics.py
+├── robot_arm.py
+├── simulator.py
+├── obb_clickable_demo.py
+│
+└── README.md
+```
+
+---
+
+# File Description
+
+## obb_clickable_demo.py
+
+Main application of the robotic simulation.
+
+Functions include:
+
+- Real-time RGB-D acquisition
+- YOLOv8-OBB inference
+- Book selection using mouse interaction
+- Coordinate transformation
+- Grasp target generation
+- Robot simulation
+- OpenCV operator interface
+- Open3D visualization
+
+---
+
+## coordinate_transform.py
+
+Converts image pixel coordinates into camera coordinates using Intel RealSense intrinsic parameters.
+
+```
+Pixel Coordinate
+
+↓
+
+Camera Coordinate
+```
+
+---
+
+## world_transform.py
+
+Transforms camera coordinates into the robot world coordinate system using the calibrated camera pose.
+
+```
+Camera Coordinate
+
+↓
+
+Robot World Coordinate
+```
+
+---
+
+## grasp_target.py
+
+Creates a unified GraspTarget object containing all information required for robotic manipulation.
+
+Including:
+
+- Book Position
+- Grasp Position
+- Approach Position
+- Book Dimensions
+- Grasp Orientation
+
+---
+
+## inverse_kinematics.py
+
+Computes the required robot joint angles from the desired grasp target.
+
+Robot Joints
+
+- Shoulder
+- Elbow
+- Wrist Pitch
+
+---
+
+## robot_arm.py
+
+Implements the robot forward kinematics and Open3D visualization.
+
+Functions include:
+
+- Robot joint modelling
+- Link generation
+- Gripper visualization
+- Wrist rotation
+- Mobile base movement
+
+---
+
+## simulator.py
+
+Main robot controller.
+
+Responsible for:
+
+- State machine
+- Book spawning
+- Robot animation
+- Mobile robot movement
+- Grasp sequence
+- Book retrieval
+- Open3D scene management
+
+Robot Sequence
+
+```
+Approach
+
+↓
+
+Insert
+
+↓
+
+Grasp
+
+↓
+
+Pull Out
+
+↓
+
+Lift
+
+↓
+
+Retrieved
+```
+
+---
+
+# Robot Configuration
+
+Robot Type
+
+- Mobile Manipulator
+
+Degrees of Freedom
+
+- Shoulder
+- Elbow
+- Wrist Pitch
+- Wrist Roll
+
+Mobile Platform
+
+- X-axis translation
+
+End Effector
+
+- Parallel Gripper
+
+---
+
+# Installation
+
+Python Version
+
+```
+Python 3.10
+```
+
+Install the required libraries:
+
+```bash
+pip install open3d
+pip install ultralytics
+pip install pyrealsense2
+pip install opencv-python
+pip install numpy
+```
+
+---
+
+# Running the Simulator
+
+Run
+
+```bash
+python obb_clickable_demo.py
+```
+
+The program automatically performs:
+
+- RGB-D acquisition
+- YOLOv8-OBB inference
+- Coordinate transformation
+- Grasp target generation
+- Robot simulation
+- OpenCV visualization
+- Open3D visualization
+
+---
+
+# Current Features
+
+- RGB-D perception
+- YOLOv8 Oriented Bounding Box detection
+- Coordinate transformation
+- Robot world calibration
+- Unified grasp target generation
+- Mobile robot positioning
+- 4-DOF robot arm simulation
+- Inverse kinematics
+- Forward kinematics
+- Interactive Open3D visualization
+- Book retrieval state machine
+- Real-time operator interface
+
+---
+
+# Future Work
+
+Possible future extensions include:
+
+- Collision avoidance
+- Motion planning using MoveIt
+- Physical robot deployment
+- ROS2 integration
+- Multi-book retrieval
+- Dynamic obstacle avoidance
+
+---
+
+# License
+
+This repository is shared for academic and educational purposes.
+
+Please provide appropriate attribution if any part of the source code or methodology is used in future research.
