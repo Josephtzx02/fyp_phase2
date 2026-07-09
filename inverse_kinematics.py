@@ -6,10 +6,6 @@ Coordinate System
 Y = Height
 Z = Forward Reach
 X = AGV Left/Right
-
-The AGV is fixed during simulation.
-
-Robot Base = (0,0)
 """
 
 import math
