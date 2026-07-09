@@ -439,6 +439,7 @@ while True:
              if selected_det.get("depth_out_of_range")
              else f"Depth (Z)   : {selected_det['depth_mm']:.1f} mm") if selected_det['depth_mm'] else "Depth        : N/A",
             f"Zone         : {selected_det['zone']}",
+            "",
             f"Thickness    : {selected_det['thickness_mm']:.1f} mm" if selected_det['thickness_mm'] is not None else "Thickness    : N/A",
             f"Height       : {selected_det['height_mm']:.1f} mm" if selected_det['height_mm'] is not None else "Height       : N/A",
             f"Pred Width   : {selected_det['pred_width_mm']:.1f} mm" if selected_det['pred_width_mm'] is not None else "Pred Width   : N/A",
