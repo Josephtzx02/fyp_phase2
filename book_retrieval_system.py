@@ -11,11 +11,11 @@ from simulator import Simulator
 from coordinate_transform import pixel_to_camera
 from grasp_target import create_grasp_target
 
-MODEL_PATH = "runs/obb/train3/weights/best.pt"
+MODEL_PATH = "models/best.pt"
 USE_REALSENSE = True
 SOURCE = 2
 START_CONF = 0.8
-CSV_OUTPUT = "selected_books2.csv"
+CSV_OUTPUT = "selected_books.csv"
 DISPLAY_SCALE = 0.75
 INFO_PANEL_WIDTH = 430
 CENTER_ZONE_RATIO = 0.15
@@ -36,11 +36,11 @@ display_resize_scale = 1.0
 
 model = YOLO(MODEL_PATH)
 
-width_model = joblib.load("width_model.pkl")
-width_features = joblib.load("width_features.pkl")
+width_model = joblib.load("models/width_model.pkl")
+width_features = joblib.load("models/width_features.pkl")
 
-weight_model = joblib.load("weight_model_D_huber.pkl")
-weight_features = joblib.load("weight_features_D.pkl")
+weight_model = joblib.load("models/weight_model_D_huber.pkl")
+weight_features = joblib.load("models/weight_features_D.pkl")
 
 BOOK_SIZE_PRIORS = [
     ("US_Pocket", 175, 108),
