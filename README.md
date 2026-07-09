@@ -1,4 +1,13 @@
 # 3D Book Retrieval Robot Simulator
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+
+![Open3D](https://img.shields.io/badge/Open3D-Visualization-success)
+
+![YOLOv8](https://img.shields.io/badge/YOLOv8-OBB-orange)
+
+![Intel RealSense](https://img.shields.io/badge/Intel-RealSense-0071C5)
+
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
 
 > Final Year Project (FYP) – Phase 2
 >
@@ -10,7 +19,7 @@
 
 # Overview
 
-This repository contains the robotic manipulation and simulation component developed during the second phase of my Final Year Project.
+This repository contains the robotic manipulation and simulation framework developed during the second phase of my Final Year Project.
 
 Unlike Phase 1, which focuses on computer vision and machine learning, this repository demonstrates how the detected books are transformed into robotic grasp targets and executed within a complete Open3D robotic simulation.
 
@@ -83,7 +92,7 @@ simulator.py
         └── robot_arm.py
         │
         ▼
-Open3D Robot Simulation
+Open3D Mobile Manipulator Simulation
 ```
 
 ---
@@ -156,13 +165,13 @@ simulator.py
 
 Robot Controller
 
+Mobile Robot (AGV)
+
 State Machine
 
 Book Retrieval Logic
 
 Motion Planning
-
-Mobile Robot (AGV)
 
 ---
 
@@ -187,12 +196,12 @@ The following sequence illustrates the complete perception-to-manipulation workf
 1. Detect books using YOLOv8-OBB.
 2. Select a target book using the mouse.
 3. Generate the robot grasp target and approach positions.
-4. Move the AGV laterally to align with the target.
+4. Move the mobile AGV laterally to align the robotic arm with the selected book.
 5. Move the robotic arm to the approach position.
 6. Insert the gripper into the bookshelf.
 7. Grasp the selected book by closing the gripper.
 8. Pull the book completely out from the shelf.
-9. Lift the retrieved book.
+9. Lift the retrieved book safely above the bookshelf.
 10. Return to the idle state, ready for the next retrieval task.
 
 ---
@@ -242,6 +251,7 @@ Functions include:
 - Robot simulation
 - OpenCV operator interface
 - Open3D visualization
+- Real-time robot state monitoring
 
 ---
 
@@ -323,7 +333,7 @@ Responsible for:
 
 - State machine
 - Book spawning
-- Robot animation
+- Robot motion animation
 - Mobile robot movement
 - Grasp sequence
 - Book retrieval
@@ -379,7 +389,7 @@ Motion Control
 
 - Inverse Kinematics
 - Forward Kinematics
-- State Machine
+- State Machine Controller
 
 ---
 
@@ -480,6 +490,16 @@ The program automatically performs:
 
 ---
 
+## Prerequisites
+
+Before running the simulator, ensure that:
+
+- Intel RealSense D435 is connected.
+- The trained YOLOv8-OBB model (`best.pt`) is located inside the `models/` directory.
+- The regression model files (`.pkl`) are available inside the `models/` directory.
+
+---
+
 # Current Features
 
 - RGB-D perception
@@ -494,6 +514,7 @@ The program automatically performs:
 - Forward kinematics
 - Interactive Open3D visualization
 - Book retrieval state machine
+- Interactive robot control panel
 - Real-time operator interface
 
 ---
@@ -520,12 +541,12 @@ The Python files located in the project root directory represent the latest stab
 
 Possible future extensions include:
 
-- Collision avoidance
-- Motion planning using MoveIt
 - Physical robot deployment
 - ROS2 integration
-- Multi-book retrieval
+- Motion planning using MoveIt
+- Collision avoidance
 - Dynamic obstacle avoidance
+- Multi-book retrieval
 
 ---
 
