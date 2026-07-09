@@ -193,6 +193,10 @@ Complete System Integration
 ├── simulator.py
 ├── obb_clickable_demo.py
 │
+├── fyp2.0_v1/
+├── fyp2.0_v2/
+├── fyp2.0_v3/
+│
 └── README.md
 ```
 
@@ -404,6 +408,24 @@ The program automatically performs:
 - Interactive Open3D visualization
 - Book retrieval state machine
 - Real-time operator interface
+
+---
+
+# Legacy Versions
+
+To preserve the complete development history of this project, previous prototype implementations have been retained in the following folders:
+
+```
+fyp2.0_v1/
+fyp2.0_v2/
+fyp2.0_v3/
+```
+
+These folders contain earlier development versions, experimental features, and intermediate implementations created during the design and testing process.
+
+They are **not required** for the final robotic simulation and are retained solely for historical reference and reproducibility.
+
+The Python files located in the project root directory represent the latest stable implementation and should be used for all future development and execution.
 
 ---
 
