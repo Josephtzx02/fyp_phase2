@@ -180,6 +180,23 @@ Complete System Integration
 
 ---
 
+# Demonstration
+
+The following sequence illustrates the complete perception-to-manipulation workflow implemented in this repository.
+
+1. Detect books using YOLOv8-OBB.
+2. Select a target book using the mouse.
+3. Generate the robot grasp target and approach positions.
+4. Move the AGV laterally to align with the target.
+5. Move the robotic arm to the approach position.
+6. Insert the gripper into the bookshelf.
+7. Grasp the selected book by closing the gripper.
+8. Pull the book completely out from the shelf.
+9. Lift the retrieved book.
+10. Return to the idle state, ready for the next retrieval task.
+
+---
+
 # Repository Structure
 
 ```
