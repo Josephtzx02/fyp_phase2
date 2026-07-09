@@ -215,7 +215,7 @@ class RobotArm:
                 2
             )
 
-        wrist_width = 60
+        wrist_width = 70
         wrist_height = 10
         wrist_depth = 10
 
